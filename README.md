@@ -1,2 +1,2 @@
 # Weather App
-![](./readme.pnj)
+![](./readme.png)
