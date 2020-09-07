@@ -1,11 +1,5 @@
-// const api = {
-//   key: "ca0c24b39cc4785521755aa5d0eabcaf",
-//   base: "https://api.openweathermap.org/data/2.5/",
-// };
-
-const myKey = require("./config");
-const API_KEY = myKey;
-console.log(API_KEY);
+import api from "./config";
+console.log(api);
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
@@ -78,3 +72,8 @@ function dateBuilder(d) {
 
   return `${day} ${date} ${month} ${year}`;
 }
+
+// const api = {
+//   key: "ca0c24b39cc4785521755aa5d0eabcaf",
+//   base: "https://api.openweathermap.org/data/2.5/",
+// };
