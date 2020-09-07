@@ -1,5 +1,7 @@
-import api from "./config";
-console.log(api);
+const api = {
+  key: "ca0c24b39cc4785521755aa5d0eabcaf",
+  base: "https://api.openweathermap.org/data/2.5/",
+};
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
@@ -11,9 +13,7 @@ function setQuery(evt) {
 }
 
 function getResults(query) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${API_KEY}`
-  )
+  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then((weather) => {
       return weather.json();
     })
@@ -72,8 +72,3 @@ function dateBuilder(d) {
 
   return `${day} ${date} ${month} ${year}`;
 }
-
-// const api = {
-//   key: "ca0c24b39cc4785521755aa5d0eabcaf",
-//   base: "https://api.openweathermap.org/data/2.5/",
-// };
