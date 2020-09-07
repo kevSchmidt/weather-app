@@ -3,7 +3,8 @@
 //   base: "https://api.openweathermap.org/data/2.5/",
 // };
 
-const API_KEY = require("./config");
+const myKey = require("./config");
+const API_KEY = myKey;
 console.log(API_KEY);
 
 const searchbox = document.querySelector(".search-box");
