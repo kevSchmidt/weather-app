@@ -1,7 +1,9 @@
-const api = {
-  key: "ca0c24b39cc4785521755aa5d0eabcaf",
-  base: "https://api.openweathermap.org/data/2.5/",
-};
+// const api = {
+//   key: "ca0c24b39cc4785521755aa5d0eabcaf",
+//   base: "https://api.openweathermap.org/data/2.5/",
+// };
+
+const { key, base } = require("./config");
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
@@ -13,7 +15,7 @@ function setQuery(evt) {
 }
 
 function getResults(query) {
-  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+  fetch(`${base}weather?q=${query}&units=metric&APPID=${key}`)
     .then((weather) => {
       return weather.json();
     })
