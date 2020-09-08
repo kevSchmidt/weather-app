@@ -1,4 +1,5 @@
 import api from "./config.js";
+console.log(api);
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
