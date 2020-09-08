@@ -1,2 +1,3 @@
 # Weather App
-![](./readme.png)
+
+![](./images/readme.png)
