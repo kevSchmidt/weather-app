@@ -1,12 +1,12 @@
 import api from "./config.js";
-console.log(api);
 
-const searchbox = document.querySelector(".search-box");
-searchbox.addEventListener("keypress", setQuery);
+// ======== Query ===
+const searchBox = document.querySelector(".search-box");
+searchBox.addEventListener("keypress", setQuery);
 
 function setQuery(evt) {
   if (evt.keyCode == 13) {
-    getResults(searchbox.value);
+    getResults(searchBox.value);
   }
 }
 
@@ -18,26 +18,33 @@ function getResults(query) {
     .then(displayResults);
 }
 
+// ======== Result ===
 function displayResults(weather) {
+  // ---- city & country ----
   let city = document.querySelector(".location .city");
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
+  // ---- current date ----
   let now = new Date();
   let date = document.querySelector(".location .date");
   date.innerText = dateBuilder(now);
 
+  // ---- temperature ----
   let temp = document.querySelector(".current .temp");
   temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
 
+  // ---- weather ----
   let weather_el = document.querySelector(".current .weather");
   weather_el.innerText = weather.weather[0].main;
 
-  let hilow = document.querySelector(".hi-low");
-  hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(
+  // ---- max and min ----
+  let hightLow = document.querySelector(".hi-low");
+  hightLow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(
     weather.main.temp_max
   )}°c`;
 }
 
+// ======== Date Builder ===
 function dateBuilder(d) {
   let months = [
     "January",
@@ -53,6 +60,7 @@ function dateBuilder(d) {
     "November",
     "December",
   ];
+
   let days = [
     "Sunday",
     "Monday",

@@ -22,6 +22,8 @@ body {
   );
 }
 
+/* ======== Header === */
+
 header {
   display: flex;
   justify-content: center;
